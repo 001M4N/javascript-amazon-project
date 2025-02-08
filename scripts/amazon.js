@@ -1,41 +1,5 @@
-// let products = [
-// {
-//   name: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-//   image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
-//   rating: {
-//     stars: 4.5,
-//     counts: 87
-//   },
-// 	priceCents: 1090
-// },
-// {
-//   name: 'Intermediate Size Basketball',
-//   image: 'images/products/intermediate-composite-basketball.jpg',
-//   rating: {
-//     stars: 4,
-//     counts: 127
-//   },
-// 	priceCents: 2095
-// },
-// {
-// 	name: 'Adults Plain Cotton T-Shirt - 2 Pack',
-// 	image: 'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-// 	rating: {
-// 	  stars: 4.5,
-// 	  counts: 56
-// 	},
-// 	  priceCents: 799
-// },
-// {
-// 	image: 'images/products/black-2-slot-toaster.jpg',
-// 	name: '2 Slot Toaster - Black',
-// 	rating: {
-// 		stars: 5,
-// 		counts: 2197
-// 	},
-// 	priceCents: 1899
-// }
-// ];
+import {cart} from '../data/cart.js'
+import {products} from '../data/products.js'
 
 let productsHTML = '';
 
