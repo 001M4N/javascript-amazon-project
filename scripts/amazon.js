@@ -1,37 +1,46 @@
-let products = [
-{
-  name: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-  image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
-  rating: {
-    stars: 4.5,
-    counts: 87
-  },
-	priceCents: 1090
-},
-{
-  name: 'Adults Plain Cotton T-Shirt - 2 Pack',
-  image: 'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-  rating: {
-    stars: 4.5,
-    counts: 56
-  },
-	priceCents: 799
-},
-{
-  name: 'Intermediate Size Basketball',
-  image: 'images/products/intermediate-composite-basketball.jpg',
-  rating: {
-    stars: 4,
-    counts: 127
-  },
-	priceCents: 2095
-}
-];
+// let products = [
+// {
+//   name: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
+//   image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
+//   rating: {
+//     stars: 4.5,
+//     counts: 87
+//   },
+// 	priceCents: 1090
+// },
+// {
+//   name: 'Intermediate Size Basketball',
+//   image: 'images/products/intermediate-composite-basketball.jpg',
+//   rating: {
+//     stars: 4,
+//     counts: 127
+//   },
+// 	priceCents: 2095
+// },
+// {
+// 	name: 'Adults Plain Cotton T-Shirt - 2 Pack',
+// 	image: 'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
+// 	rating: {
+// 	  stars: 4.5,
+// 	  counts: 56
+// 	},
+// 	  priceCents: 799
+// },
+// {
+// 	image: 'images/products/black-2-slot-toaster.jpg',
+// 	name: '2 Slot Toaster - Black',
+// 	rating: {
+// 		stars: 5,
+// 		counts: 2197
+// 	},
+// 	priceCents: 1899
+// }
+// ];
 
-
+let productsHTML = '';
 
 products.forEach((product) => {
-	`
+	productsHTML += `
 	<div class="product-container">
 	<div class="product-image-container">
 		<img class="product-image"
@@ -39,19 +48,19 @@ products.forEach((product) => {
 	</div>
 
 	<div class="product-name limit-text-to-2-lines">
-		Black and Gray Athletic Cotton Socks - 6 Pairs
+		${product.name}
 	</div>
 
 	<div class="product-rating-container">
 		<img class="product-rating-stars"
-			src="images/ratings/rating-45.png">
+			src="images/ratings/rating-${product.rating.stars * 10}.png">
 		<div class="product-rating-count link-primary">
-			87
+			${product.rating.count}
 		</div>
 	</div>
 
 	<div class="product-price">
-		$10.90
+		$${(product.priceCents / 100).toFixed(2)}
 	</div>
 
 	<div class="product-quantity-container">
@@ -82,3 +91,5 @@ products.forEach((product) => {
 </div>
 	`
 });
+
+document.querySelector('.js-products-grid').innerHTML = productsHTML;
