@@ -13,13 +13,13 @@ export function add_to_cart(elem){
 	cart_quanity();
 }
 
-function cart_quanity(){
+export function cart_quanity(){
 	let num_items_in_cart = 0;
 	cart.forEach((item) => {
 		num_items_in_cart += item.Quantity;
 	});
 	document.querySelector('.js-cart-quantity').innerHTML = num_items_in_cart;
-	console.log(num_items_in_cart)
+	console.log(num_items_in_cart);
 }
 
 

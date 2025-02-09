@@ -1,4 +1,4 @@
-import {cart, add_to_cart} from '../data/cart.js'
+import {cart, add_to_cart, cart_quanity} from '../data/cart.js'
 import {products} from '../data/products.js'
 import {cents_to_dollars} from "./utils/money.js";
 
@@ -64,3 +64,6 @@ document.querySelectorAll('.js-to-cart-button').forEach((elem) => {
 		console.log(cart);
 	});
 });
+
+
+cart_quanity();
