@@ -109,3 +109,7 @@ function show_cart_items(){
 
 
 show_cart_items();
+
+const today = dayjs();
+const sevenDaysLater = today.add(7, 'day');
+console.log(sevenDaysLater.format('dddd MMM. D'))
