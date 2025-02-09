@@ -16,7 +16,7 @@ function show_cart_items(){
     });
     // console.log(matchingProduct.image);
     checkout_html += `
-          <div class="cart-item-container">
+          <div class="cart-item-container js-cart-item-container-${Cartitem.productId}">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -99,8 +99,7 @@ function show_cart_items(){
     element.addEventListener('click', () =>{
       const productId = element.dataset.productId;
       delete_item_from_cart(productId);
-      show_cart_items();
-      console.log(cart);
+      document.querySelector(`.js-cart-item-container-${productId}`).remove();
     });
   });
 
