@@ -1,13 +1,4 @@
-export let cart = [
-	{
-		productId: '54e0eccd-8f36-462b-b68a-8182611d9add',
-		Quantity: 2
-	},
-	{
-		productId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
-		Quantity: 1		
-	}
-]
+export let cart = (JSON.parse(localStorage.getItem('cart'))) || [];
 
 export function add_to_cart(elem){
 	const productId = elem.dataset.productId;
@@ -18,7 +9,8 @@ export function add_to_cart(elem){
 
 	(flag === 0) && (cart.push({productId, Quantity:1}));
 
-	cart_quanity()
+	save_to_local_storage();
+	cart_quanity();
 }
 
 function cart_quanity(){
@@ -38,4 +30,9 @@ export function delete_item_from_cart(productId){
   });
 
   cart = newCart;
+  save_to_local_storage();
+}
+
+export function save_to_local_storage(){
+	localStorage.setItem('cart', JSON.stringify(cart));
 }
