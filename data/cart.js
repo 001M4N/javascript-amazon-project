@@ -7,7 +7,7 @@ export function add_to_cart(elem){
 		(item.productId===productId) && (item.Quantity += 1) && (flag = 1);
 	});
 
-	(flag === 0) && (cart.push({productId, Quantity:1}));
+	(flag === 0) && (cart.push({productId, Quantity:1, deliveryOption: 1}));
 
 	save_to_local_storage();
 	cart_quanity();
