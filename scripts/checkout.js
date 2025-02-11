@@ -1,6 +1,7 @@
 import { cart, delete_item_from_cart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import {cents_to_dollars} from "./utils/money.js";
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 
 function show_cart_items(){
   let checkout_html = '';
