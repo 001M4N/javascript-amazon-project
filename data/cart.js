@@ -7,9 +7,9 @@ export function add_to_cart(elem){
 		(item.productId===productId) && (item.Quantity += 1) && (flag = 1);
 	});
 
-	(flag === 0) && (cart.push({productId, Quantity:1}));
+	(flag === 0) && (cart.push({productId, Quantity:1, deliveryOption: 0}));
 
-	save_to_local_storage();
+	save_cart_to_local_storage();
 	cart_quanity();
 }
 
@@ -30,9 +30,9 @@ export function delete_item_from_cart(productId){
   });
 
   cart = newCart;
-  save_to_local_storage();
+  save_cart_to_local_storage();
 }
 
-export function save_to_local_storage(){
+export function save_cart_to_local_storage(){
 	localStorage.setItem('cart', JSON.stringify(cart));
 }

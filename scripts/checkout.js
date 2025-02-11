@@ -1,7 +1,8 @@
 import { cart, delete_item_from_cart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import {cents_to_dollars} from "./utils/money.js";
-import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
+import {make_delivery_options} from "../data/deliveryOptions.js"
+import {setDeliveryOption} from "../data/deliveryOptions.js"
 
 function show_cart_items(){
   let checkout_html = '';
@@ -44,51 +45,11 @@ function show_cart_items(){
                   </span>
                 </div>
               </div>
-
+              
               <div class="delivery-options">
-                <div class="delivery-options-title">
-                  Choose a delivery option:
-                </div>
-                <div class="delivery-option">
-                  <input type="radio" checked
-                    class="delivery-option-input"
-                    name="delivery-option-${Cartitem.productId}">
-                  <div>
-                    <div class="delivery-option-date">
-                      Tuesday, June 21
-                    </div>
-                    <div class="delivery-option-price">
-                      FREE Shipping
-                    </div>
-                  </div>
-                </div>
-                <div class="delivery-option">
-                  <input type="radio"
-                    class="delivery-option-input"
-                    name="delivery-option-${Cartitem.productId}">
-                  <div>
-                    <div class="delivery-option-date">
-                      Wednesday, June 15
-                    </div>
-                    <div class="delivery-option-price">
-                      $4.99 - Shipping
-                    </div>
-                  </div>
-                </div>
-                <div class="delivery-option">
-                  <input type="radio"
-                    class="delivery-option-input"
-                    name="delivery-option-${Cartitem.productId}">
-                  <div>
-                    <div class="delivery-option-date">
-                      Monday, June 13
-                    </div>
-                    <div class="delivery-option-price">
-                      $9.99 - Shipping
-                    </div>
-                  </div>
-                </div>
+                ${make_delivery_options(Cartitem)}
               </div>
+
             </div>
           </div>
     `
@@ -104,13 +65,10 @@ function show_cart_items(){
     });
   });
 
+  setDeliveryOption();
 }
 
 
 
 
 show_cart_items();
-
-const today = dayjs();
-const sevenDaysLater = today.add(7, 'day');
-console.log(sevenDaysLater.format('dddd MMM. D'))
