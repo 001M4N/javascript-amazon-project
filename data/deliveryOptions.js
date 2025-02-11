@@ -27,10 +27,11 @@ export function make_delivery_options(Cartitem){
     let delivery_date_price;
     let deliveryOptionsHTML = '';
     let is_checked;
-    deliveryOptions.forEach((option, index) => {
+    deliveryOptions.forEach((option) => {
         delivery_date = today.add(option.deliveryDays, 'day').format("dddd, MMMM, DD");
-        delivery_date_price = (option.priceCents === 0) ? `FREE Shipping` : `${cents_to_dollars(option.priceCents)} Shipping`;
-        let is_checked = (index === Cartitem.deliveryOption) ? 'checked' : null;
+        delivery_date_price = (option.priceCents === 0) ? `FREE Shipping` : `${cents_to_dollars(option.priceCents)}$ - Shipping`;
+        let is_checked = (option.id === Cartitem.deliveryOption) ? 'checked' : null;
+        // console.log(option.id, Cartitem.deliveryOption)
         deliveryOptionsHTML += 
             `
             <div class="delivery-options">
@@ -65,8 +66,8 @@ export function setDeliveryOption(){
     const radios = document.querySelectorAll('.delivery-option-input');
     radios.forEach(radio => {
         radio.addEventListener('change', (event) => {
-            const delivertOption = (Number(radio.dataset.deliveryDuration) === 7) ? 0 :
-                                   (Number(radio.dataset.deliveryDuration) === 3) ? 1 : 2;
+            const delivertOption = (Number(radio.dataset.deliveryDuration) === 7) ? 1 :
+                                   (Number(radio.dataset.deliveryDuration) === 3) ? 2 : 3;
             cart.forEach(item => {
                 (item.productId === radio.dataset.productId) && (item.deliveryOption = delivertOption);
             });
