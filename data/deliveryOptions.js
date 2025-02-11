@@ -72,10 +72,25 @@ export function setDeliveryOption(){
                 (item.productId === radio.dataset.productId) && (item.deliveryOption = delivertOption);
             });
             save_cart_to_local_storage();
-
-            const today = dayjs()
-            const selectedDeliveyDate = today.add(deliveryOptions[delivertOption-1].deliveryDays, 'day').format("dddd, MMMM DD");
-            document.querySelector('.delivery-date').innerHTML = `Delivery date: ${selectedDeliveyDate}`
+            display_delivery_text();
         });
+    });
+}
+
+
+export function display_delivery_text(){
+    cart.forEach(item => {
+
+        let delivery_duration;
+        deliveryOptions.forEach(option => {
+            console.log(item.deliveryOption, option.id);
+            (option.id === item.deliveryOption) && (delivery_duration = option.deliveryDays);
+        });
+        // console.log(delivery_duration)
+
+        const today = dayjs()
+        const delivey_date = today.add(delivery_duration, 'day').format("dddd, MMMM DD");
+        
+        document.querySelector(`.js-delivery-date-${item.productId}`).innerHTML = `Delivery date: ${delivey_date}`
     });
 }

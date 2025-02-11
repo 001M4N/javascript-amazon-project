@@ -2,7 +2,7 @@ import { cart, delete_item_from_cart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import {cents_to_dollars} from "./utils/money.js";
 import {make_delivery_options} from "../data/deliveryOptions.js"
-import {setDeliveryOption} from "../data/deliveryOptions.js"
+import {setDeliveryOption, display_delivery_text} from "../data/deliveryOptions.js"
 
 function show_cart_items(){
   let checkout_html = '';
@@ -19,7 +19,7 @@ function show_cart_items(){
     // console.log(matchingProduct.image);
     checkout_html += `
           <div class="cart-item-container js-cart-item-container-${Cartitem.productId}">
-            <div class="delivery-date">
+            <div class="delivery-date js-delivery-date-${Cartitem.productId}">
               Delivery date: Tuesday, June 21
             </div>
 
@@ -53,6 +53,7 @@ function show_cart_items(){
             </div>
           </div>
     `
+    // console.log(checkout_html)
     });
 
   document.querySelector('.js-order-summary').innerHTML = checkout_html;
@@ -65,6 +66,7 @@ function show_cart_items(){
     });
   });
 
+  display_delivery_text();
   setDeliveryOption();
 }
 
