@@ -72,6 +72,10 @@ export function setDeliveryOption(){
                 (item.productId === radio.dataset.productId) && (item.deliveryOption = delivertOption);
             });
             save_cart_to_local_storage();
+
+            const today = dayjs()
+            const selectedDeliveyDate = today.add(deliveryOptions[delivertOption-1].deliveryDays, 'day').format("dddd, MMMM DD");
+            document.querySelector('.delivery-date').innerHTML = `Delivery date: ${selectedDeliveyDate}`
         });
     });
 }
