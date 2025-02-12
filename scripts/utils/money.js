@@ -1,3 +1,3 @@
 export function cents_to_dollars(arg){
-    return((arg / 100).toFixed(2));
+    return((Math.round(arg) / 100).toFixed(2));
 }

@@ -2,7 +2,7 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 import {cents_to_dollars} from "../scripts/utils/money.js"
 import {cart, save_cart_to_local_storage} from "./cart.js"
 
-const deliveryOptions = [
+export const deliveryOptions = [
     {
         id: 1,
         deliveryDays: 7,
