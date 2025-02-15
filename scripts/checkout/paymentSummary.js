@@ -1,7 +1,7 @@
 import { cart } from "../../data/cart.js";
 import { products } from "../../data/products.js";
 import { cents_to_dollars } from "../utils/money.js"
-import {deliveryOptions} from "../../data/deliveryOptions.js"
+import { deliveryOptions } from "../../data/deliveryOptions.js"
 
 export function render_payment_summary(){
     const payment_summary_html = `        

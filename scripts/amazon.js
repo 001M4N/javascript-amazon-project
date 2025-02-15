@@ -60,7 +60,8 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 document.querySelectorAll('.js-to-cart-button').forEach((elem) => {
 	elem.addEventListener('click', ()=>{
-		add_to_cart(elem);
+		const productId = elem.dataset.productId;
+		add_to_cart(productId);
 		console.log(cart);
 	});
 });

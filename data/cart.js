@@ -1,7 +1,7 @@
 export let cart = (JSON.parse(localStorage.getItem('cart'))) || [];
 
-export function add_to_cart(elem){
-	const productId = elem.dataset.productId;
+export function add_to_cart(productId){
+	// const productId = elem.dataset.productId;
 	let flag = 0;
 	cart.forEach((item) => {
 		(item.productId===productId) && (item.Quantity += 1) && (flag = 1);
