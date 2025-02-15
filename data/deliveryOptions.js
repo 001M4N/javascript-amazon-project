@@ -1,6 +1,7 @@
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 import {cents_to_dollars} from "../scripts/utils/money.js"
 import {cart, save_cart_to_local_storage} from "./cart.js"
+import { render_payment_summary } from "../scripts/checkout/paymentSummary.js"
 
 export const deliveryOptions = [
     {
@@ -73,6 +74,7 @@ export function setDeliveryOption(){
             });
             save_cart_to_local_storage();
             display_delivery_text();
+            render_payment_summary();
         });
     });
 }
