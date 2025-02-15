@@ -3,7 +3,7 @@ import { products } from "../../data/products.js";
 import {cents_to_dollars} from "../utils/money.js";
 import {make_delivery_options} from "../../data/deliveryOptions.js"
 import {setDeliveryOption, display_delivery_text} from "../../data/deliveryOptions.js"
-
+import { render_payment_summary } from "./paymentSummary.js"
 export function show_cart_items(){
   let checkout_html = '';
 
@@ -63,6 +63,8 @@ export function show_cart_items(){
       const productId = element.dataset.productId;
       delete_item_from_cart(productId);
       document.querySelector(`.js-cart-item-container-${productId}`).remove();
+
+      render_payment_summary();
     });
   });
 

@@ -78,7 +78,7 @@ function total_cost(){
     return cents_to_dollars((cost_of_cart_items() * 100) + (cost_of_shipping_and_handling() * 100));
 }
 
-function estimated_tax(tax_rate=10){
+ function estimated_tax(tax_rate=10){
     const totalCost = total_cost();
     return cents_to_dollars(((totalCost * 100)/tax_rate));
 }
