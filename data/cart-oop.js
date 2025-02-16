@@ -1,14 +1,14 @@
 class Cart{
     cartItems = undefined;
-    localStorageKey = undefined;
+    #localStorageKey = undefined;
 
     constructor(localStorageKey){
-        this.localStorageKey = this.localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage(){
-        (JSON.parse(localStorage.getItem(this.localStorageKey)))
+    #loadFromStorage(){
+        (JSON.parse(localStorage.getItem(this.#localStorageKey)))
     }
 
     add_to_cart(productId){
@@ -43,9 +43,12 @@ class Cart{
     };
 
     save_cart_to_local_storage(){
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cart_items));
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cart_items));
     };
 }
 
 const cart = new Cart('ecconomyCart');
 const businessCart = new Cart('businessCart');
+
+console.log(cart);
+console.log(businessCart)
