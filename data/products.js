@@ -1,4 +1,29 @@
-export const products = [
+import { cents_to_dollars } from "../scripts/utils/money.js"
+
+class Product{
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(item){
+    this.id = item.id;
+    this.image = item.image;
+    this.name = item.name;
+    this.rating = item.rating;
+    this.priceCents = item.priceCents;
+  }
+  showStars(){
+    return `images/ratings/rating-${this.rating.stars * 10}.png`
+  }
+
+  productPrice(){
+    return cents_to_dollars(this.priceCents);
+  }
+}
+
+export const product = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -657,4 +682,9 @@ export const products = [
       "mens"
     ]
   }
-];
+].map((item) => {
+  console.log(item)
+  return new Product(item);
+});
+
+// console.log(products)
