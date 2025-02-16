@@ -23,6 +23,30 @@ class Product{
   }
 }
 
+class clothes extends Product{
+  clothesType;
+
+  constructor(item){
+    super(item);
+    this.clothesType = item.type;
+  }
+}
+
+
+const clothes_obj = new clothes({
+  id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+  image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+  name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+  rating: {
+    stars: 4.5,
+    count: 87
+  },
+  priceCents: 1090,
+  type : 'T-shirt'}
+)
+
+console.log(clothes_obj)
+
 export const product = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -683,7 +707,7 @@ export const product = [
     ]
   }
 ].map((item) => {
-  console.log(item)
+  // console.log(item)
   return new Product(item);
 });
 
