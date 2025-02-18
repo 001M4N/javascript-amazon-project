@@ -1,0 +1,8 @@
+I tried to learn JS for youtube SuperSimpleDev.
+I almost watched the whole video, except 2 parts. one that relates
+the testing with jasmine and the other that is related to the 
+backend.
+I believe I know the main part of the JS and I am ready for doing projects
+and when I became proficeint I and want to learn a framwork like react, I can watch
+the dropped parts, I think In that situation, I will learn better.
+bis bald!
